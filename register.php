@@ -12,7 +12,7 @@ $controller = new UserController();
 <head>
     <meta charset="utf-8">
 
-    <title>University - Register</title>
+    <title>Student Management System - Register</title>
     <meta name="description" content="Students page for University website">
     <meta name="author" content="Louella Creemers">
 

@@ -23,18 +23,23 @@ class Database
     }
     public function connect(){
         $this->host = "localhost";
-        $this->user = "root";
-        $this->pwd = "";
+        $this->user = "sqluser"; //root
+        $this->pwd = "etK%@tjMwYV3nVzzqY2d743S"; //etK%@tjMwYV3nVzzqY2d743S
         $this->dbName = "universitydb";
 
-        $mysqli = new mysqli($this->host,$this->user,$this->pwd,$this->dbName);
+        try{
+            $mysqli = new mysqli($this->host,$this->user,$this->pwd,$this->dbName);
 
-        if ($mysqli -> connect_errno) {
-            echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-            exit();
+            if ($mysqli -> connect_errno) {
+                throw new DatabaseException("Failed to connect to MySQL, ".$mysqli->connect_error);
+                exit();
+            }
+            return $mysqli;
         }
 
-        return $mysqli;
+        catch(DatabaseException $e){
+            echo $e->getMessage();
+        }
     }
 }
 

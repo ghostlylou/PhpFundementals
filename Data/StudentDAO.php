@@ -16,7 +16,7 @@ class StudentDAO
         return $this->ObjectToModel($result);
     }
 
-    public function GetAllSearchedStudentsDB($searchRaw){ //TODO Escape string 'search'
+    public function GetAllSearchedStudentsDB($searchRaw){
 
         $search = $this->EscapeString($searchRaw);
         $sql = "SELECT * FROM `students` WHERE `firstname` LIKE '%{$search}%' OR `lastname` LIKE '%{$search}%' OR 
@@ -37,17 +37,22 @@ class StudentDAO
         $email= $this->EscapeString($object->getEmail());
         $dateOR = $this->EscapeString($object->getDate());
 
-        $sql = "INSERT INTO students (firstname, lastname, dateOfBirth, study, class, email, `date`)
+        try{
+            $sql = "INSERT INTO students (firstname, lastname, dateOfBirth, study, class, email, `date`)
                 VALUES ('".$fname."','".$lname."','".$dateOB."
                 ','".$study."','".$class."','".$email."','".$dateOR."');";
 
-        $result = mysqli_query($this->dbConn->connect(), $sql);
+            $result = mysqli_query($this->dbConn->connect(), $sql);
 
-        if($result){ //if creating a student went successfully
-            echo "<div class='alert alert-success'>New Student has been created successfully</div>";
+            if($result){ //if creating a student went successfully
+                echo "<div class='alert alert-success'>New Student has been created successfully</div>";
+            }
+            else{ //if creating a student failed
+                throw new DatabaseException("Can't create database");
+            }
         }
-        else{ //if creating a student failed
-            echo "<div class='alert alert-danger'>Error: can't create Student</div>";
+        catch (DatabaseException $e){
+            echo $e->getMessage();
         }
     }
 
@@ -147,9 +152,6 @@ class StudentDAO
             $s = new StudentModel($firstname, $lastname,$date,$study, $class, $email); //Put all the data in a student object
 
             return $s;
-        }
-        else{
-            echo "error"; //error
         }
     }
 

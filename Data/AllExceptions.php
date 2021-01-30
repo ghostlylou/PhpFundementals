@@ -9,6 +9,13 @@ class LoginException extends Exception
     }
 }
 
+class DatabaseException extends Exception
+{
+    public function __construct($message = "", $code = 0, Throwable $previous = null)
+    {
+        echo "<div class='alert alert-danger'>Database error: {$message}</div>";
+    }
+}
 class RegularException extends Exception{
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {

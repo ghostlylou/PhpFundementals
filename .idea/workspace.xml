@@ -19,7 +19,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Website/views/register.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/index.php" />
     <property name="nodejs.jest.jest_package" value="" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -40,7 +40,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="php script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Website/index.php">
+    <configuration name="php script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/index.php">
       <method v="2" />
     </configuration>
   </component>
@@ -65,7 +65,8 @@
       <workItem from="1611673760573" duration="22375000" />
       <workItem from="1611746284943" duration="4391000" />
       <workItem from="1611786442743" duration="5036000" />
-      <workItem from="1611828234177" duration="31853000" />
+      <workItem from="1611828234177" duration="36678000" />
+      <workItem from="1612005576299" duration="3114000" />
     </task>
     <servers />
   </component>
@@ -77,10 +78,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="348" y="67" key="#CLI_Interpreters/0.0.1536.824@0.0.1536.824" timestamp="1605096052084" />
-    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611862064124">
+    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612007218597">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1611862064124" />
+    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1612007218597" />
     <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser" timestamp="1606237732601">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -93,10 +94,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="431" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1605988618386" />
-    <state x="548" y="166" key="FileChooserDialogImpl" timestamp="1611790393334">
+    <state x="548" y="166" key="FileChooserDialogImpl" timestamp="1612007215662">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611790393334" />
+    <state x="548" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1612007215662" />
     <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1611879048602">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -13,8 +13,8 @@
 <head>
     <meta charset="utf-8">
 
-    <title>University - Students</title>
-    <meta name="description" content="Students page for University website">
+    <title>StudentManagement System - Students</title>
+    <meta name="description" content="Student management system website for PHP1">
     <meta name="author" content="Louella Creemers">
 
     <link rel="stylesheet" href="./../css/bootstrap.css">

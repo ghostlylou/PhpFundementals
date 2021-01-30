@@ -3,9 +3,6 @@ require '../Controller/StudentController.php';
 include_once "Helpers/nav.php";
 include_once "Helpers/sessionCheck.php";
 
-//TODO Add comments
-//TODO Add try-catches
-
 ?>
 <!doctype html>
 
@@ -13,8 +10,8 @@ include_once "Helpers/sessionCheck.php";
 <head>
     <meta charset="utf-8">
 
-    <title>University - Create Student</title>
-    <meta name="description" content="Students page for University website">
+    <title>Student Management System - Create Student</title>
+    <meta name="description" content="Student management system website for PHP1">
     <meta name="author" content="Louella Creemers">
 
     <link rel="stylesheet" href="./../css/bootstrap.css">
@@ -24,7 +21,6 @@ include_once "Helpers/sessionCheck.php";
 
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-
     $a = new StudentController();
 
     $firstname =htmlspecialchars(strip_tags($_POST['firstname']));
@@ -33,6 +29,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $study =htmlspecialchars(strip_tags($_POST['study']));
     $class =htmlspecialchars(strip_tags($_POST['class']));
     $email =htmlspecialchars(strip_tags($_POST['email']));
+
+    echo "{$firstname}";
+    echo "{$lastname}";
+    echo "{$dateofbirth}";
+    echo "{$study}";
+    echo "{$class}";
+    echo "{$email}";
 
     $a->CreateStudentCon($firstname, $lastname, $dateofbirth, $study, $class, $email);
 }

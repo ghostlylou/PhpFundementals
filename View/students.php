@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>StudentManagement System - Students</title>
+    <title>Student Management System - Students</title>
     <meta name="description" content="Student management system website for PHP1">
     <meta name="author" content="Louella Creemers">
 

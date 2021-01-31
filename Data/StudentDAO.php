@@ -124,10 +124,10 @@ class StudentDAO
                 echo "<div class='alert alert-success'>Student has been deleted successfully</div>";
             }
             else{ //if result is unsuccessful
-                throw new DeleteException("Can't delete student");
+                throw new DatabaseException("Can't delete student");
             }
         }
-        catch(DeleteException $e){
+        catch(DatabaseException $e){
           echo $e->getMessage();
         }
     }

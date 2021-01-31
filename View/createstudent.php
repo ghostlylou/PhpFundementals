@@ -29,14 +29,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $study =htmlspecialchars(strip_tags($_POST['study']));
     $class =htmlspecialchars(strip_tags($_POST['class']));
     $email =htmlspecialchars(strip_tags($_POST['email']));
-
-    echo "{$firstname}";
-    echo "{$lastname}";
-    echo "{$dateofbirth}";
-    echo "{$study}";
-    echo "{$class}";
-    echo "{$email}";
-
     $a->CreateStudentCon($firstname, $lastname, $dateofbirth, $study, $class, $email);
 }
 ?>

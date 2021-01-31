@@ -20,11 +20,14 @@ require_once './Controller/UserController.php';
 $controller = new UserController();
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        //strip data from form of special characters
         $email = htmlspecialchars(strip_tags($_POST['email']));
         $password = htmlspecialchars(strip_tags($_POST['password']));
 
+        //checks if email is valid
         $status = $controller->CheckEmailCon($email);
 
+        //if valid, change password
         if($status){
             $controller->ChangePasswordCon($email, $password);
         }

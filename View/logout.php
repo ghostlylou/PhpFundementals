@@ -21,16 +21,16 @@ include_once "Helpers/sessionCheck.php";
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        session_start();
-        $_SESSION = array();
-        session_unset();
-        session_destroy();
-        header("location: ../index.php");
+        session_start(); //starts the session so SESSION can be called
+        $_SESSION = array(); //puts session ID in array
+        session_unset(); //unset data
+        session_destroy(); //destroys session
+        header("location: ../index.php"); //sends user back to login screen
         exit;
     }
 ?>
 
-<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin: 3em">
+<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin: 3em"> //if submit btn is clicked, post
     <h1>Are you sure you want to log out?</h1>
 
     <input type="submit" value="Yes" class="btn btn-success">

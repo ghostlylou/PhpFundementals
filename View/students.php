@@ -65,10 +65,11 @@ if($_SERVER["REQUEST_METHOD"] = "GET"){
             <tbody>
                 <?php
 
-                $studentArray = (array)$controller->ShowStudentsCon($searchTerm);
+                $studentArray = (array)$controller->ShowStudentsCon($searchTerm); //gets array filled with students from controller
 
-                if($studentArray){
-                    foreach($studentArray as $item){
+                if($studentArray){ //als studentarray niet null is
+                    foreach($studentArray as $item){ //elk item in array
+                        //haalt data op uit student item
                         $id = $item->getId();
                         $firstname = $item->getFirstName();
                         $lastname = $item->getLastName();
@@ -78,6 +79,7 @@ if($_SERVER["REQUEST_METHOD"] = "GET"){
                         $email = $item->getEmail();
                         $date = $item->getDate();
 
+                        //zet alles neer in een tabel
                         echo "<tr>";
                         echo "<td>$firstname</td>";
                         echo "<td>$lastname</td>";

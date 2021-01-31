@@ -20,9 +20,10 @@ include_once "Helpers/sessionCheck.php";
 <body style="background-color: gainsboro">
 
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){ //als submit button wordt aangeklikt
     $a = new StudentController();
 
+    //strip all data from form of special characters
     $firstname =htmlspecialchars(strip_tags($_POST['firstname']));
     $lastname =htmlspecialchars(strip_tags($_POST['lastname']));
     $dateofbirth =htmlspecialchars(strip_tags($_POST['birthday']));
@@ -33,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"> //als submit knop wordt aangeklikt, post
     <table class="table table-hover table-responsive table-bordered">
         <tr>
             <td>First Name</td>

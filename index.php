@@ -4,8 +4,8 @@
 
 session_start();
 
-if(isset($_SESSION['id'])){
-    header("location: students.php");
+if(isset($_SESSION['id'])){ //if there's a session already active
+    header("location: students.php"); //if there is already a session active
     exit;
 }
 
@@ -33,8 +33,8 @@ if(isset($_SESSION['id'])){
             $id = $controller->CheckLoginCon($email, $password);
 
             if(!empty($id)){
-                $_SESSION['id'] = $controller->HashInput($id);
-                header("Location: ./View/students.php");
+                $_SESSION['id'] = $controller->HashInput($id); //hash id and set it as session data
+                header("Location: ./View/students.php"); //Go to students overview page
             }
         }
     }

@@ -27,16 +27,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\louel\PhpstormProjects\EindOpdrachtPHP\Website\views" />
+      <recent name="C:\Users\louel\PhpstormProjects\EindOpdrachtPHP\Website\Logica" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\louel\PhpstormProjects\EindOpdrachtPHP\Website" />
       <recent name="C:\Users\louel\PhpstormProjects\EindOpdrachtPHP\Website\" />
       <recent name="C:\Users\louel\PhpstormProjects\EindOpdrachtPHP\Website\Data" />
       <recent name="C:\Users\louel\PhpstormProjects\EindOpdrachtPHP\Website\models" />
       <recent name="C:\Users\louel\PhpstormProjects\EindOpdrachtPHP\Website\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\louel\PhpstormProjects\EindOpdrachtPHP\Website\views" />
-      <recent name="C:\Users\louel\PhpstormProjects\EindOpdrachtPHP\Website\Logica" />
     </key>
   </component>
   <component name="RunManager">
@@ -67,7 +67,7 @@
       <workItem from="1611786442743" duration="5036000" />
       <workItem from="1611828234177" duration="36678000" />
       <workItem from="1612005576299" duration="3114000" />
-      <workItem from="1612099412995" duration="596000" />
+      <workItem from="1612099412995" duration="4533000" />
     </task>
     <servers />
   </component>

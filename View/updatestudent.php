@@ -5,9 +5,9 @@ include_once "Helpers/sessionCheck.php";
 
 $controller = new StudentController();
 
-if(isset($_GET['id']) && !empty($_GET['id']));{
+if(isset($_GET['id']) && !empty($_GET['id']));{ //If id is in link and id is not empty
     $newId = $_GET['id'];
-    $foundStudent = $controller->ReadStudentCon($newId);
+    $foundStudent = $controller->ReadStudentCon($newId); //find student with matching id
 }
 
 ?>
@@ -30,6 +30,8 @@ if(isset($_GET['id']) && !empty($_GET['id']));{
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $a = new StudentController();
+
+    //strip all filled in info from from special html characters
     $firstname =htmlspecialchars(strip_tags($_POST['firstname']));
     $lastname =htmlspecialchars(strip_tags($_POST['lastname']));
     $dateofbirth =htmlspecialchars(strip_tags($_POST['birthday']));
@@ -39,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $id = intval($newId);
 
-    $a->UpdateStudentCon($id, $firstname, $lastname, $dateofbirth, $study, $class, $email);
+    $a->UpdateStudentCon($id, $firstname, $lastname, $dateofbirth, $study, $class, $email); //update student
 }
 ?>
 

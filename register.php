@@ -26,18 +26,19 @@ $controller = new UserController();
 
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        //strip form input from special characters
         $email = htmlspecialchars(strip_tags($_POST['username']));
         $password = htmlspecialchars(strip_tags($_POST['password']));
         $firstname = htmlspecialchars(strip_tags($_POST['firstname']));
         $lastname = htmlspecialchars(strip_tags($_POST['lastname']));
 
-        $u = new UserModel($firstname, $lastname, $email, $password);
+        $u = new UserModel($firstname, $lastname, $email, $password); //create new user
 
-        $controller->CheckRegistrationCon($u);
+        $controller->CheckRegistrationCon($u); //checks registration
 
     }
 ?>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"> //if submit btn is clicked, post
     <table class="table table-hover table-bordered">
         <tr>
             <th>First name</th>

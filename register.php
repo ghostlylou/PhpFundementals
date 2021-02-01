@@ -38,7 +38,7 @@ $controller = new UserController();
 
     }
 ?>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"> //if submit btn is clicked, post
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <table class="table table-hover table-bordered">
         <tr>
             <th>First name</th>

@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ //als submit button wordt aangeklikt
 }
 ?>
 
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"> //als submit knop wordt aangeklikt, post
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <table class="table table-hover table-responsive table-bordered">
         <tr>
             <td>First Name</td>

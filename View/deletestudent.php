@@ -33,8 +33,8 @@ if(isset($_GET['id']) && !empty($_GET['id']));{ //If there is an id in the link 
     }
 ?>
 
-<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?id={$newId}");?>" method="post" style="margin: 3em"> //if submit button is clicked, post
-    <h1>Are you sure you want to delete <?php echo $foundStudent->getFirstName()." ".$foundStudent->getLastName()?>?</h1> //Shows firstname and lastname of student with matching id
+<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?id={$newId}");?>" method="post" style="margin: 3em">
+    <h1>Are you sure you want to delete <?php echo $foundStudent->getFirstName()." ".$foundStudent->getLastName()?>?</h1>
 
     <input type="submit" value="Delete" class="btn btn-success">
     <a href="students.php" type="button" class="btn btn-danger">Go back to Students</a>

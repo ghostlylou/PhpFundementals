@@ -30,7 +30,7 @@ include_once "Helpers/sessionCheck.php";
     }
 ?>
 
-<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin: 3em"> //if submit btn is clicked, post
+<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin: 3em">
     <h1>Are you sure you want to log out?</h1>
 
     <input type="submit" value="Yes" class="btn btn-success">

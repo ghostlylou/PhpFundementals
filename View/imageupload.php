@@ -14,7 +14,7 @@ if(isset($_POST['upload'])){
 <head>
     <meta charset="utf-8">
 
-    <title>Student Management System - Donate</title>
+    <title>Student Management System - Dnate</title>
     <meta name="description" content="Student management system website for PHP1">
     <meta name="author" content="Louella Creemers">
 

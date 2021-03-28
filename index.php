@@ -1,14 +1,6 @@
 <?php
  require_once 'Controller/UserController.php';
  $controller = new UserController();
-
-session_start();
-
-if(isset($_SESSION['id'])){ //if there's a session already active
-    header("location: students.php"); //if there is already a session active
-    exit;
-}
-
 ?>
 
 <!doctype html>
@@ -25,7 +17,7 @@ if(isset($_SESSION['id'])){ //if there's a session already active
 </head>
 
 <?php
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if($_SERVER["REQUEST_METHOD"] = "POST"){
         if(!empty($_POST['username']) && !empty($_POST['password'])){
             $email = htmlspecialchars(strip_tags($_POST['username']));
             $password = htmlspecialchars(strip_tags($_POST['password']));

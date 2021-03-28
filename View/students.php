@@ -98,6 +98,13 @@ if($_SERVER["REQUEST_METHOD"] = "GET"){
                 ?>
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-4">
+                <form action="insertfile.php" style="margin-bottom:1em " method="post">
+                    <button class="btn btn-primary" onclick="insertfile.php">Insert CSV</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>

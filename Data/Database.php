@@ -23,8 +23,8 @@ class Database
     }
     public function connect(){
         $this->host = "localhost";
-        $this->user = "sqluser"; //root
-        $this->pwd = "etK%@tjMwYV3nVzzqY2d743S"; //etK%@tjMwYV3nVzzqY2d743S
+        $this->user = "root"; //root
+        $this->pwd = ""; //etK%@tjMwYV3nVzzqY2d743S
         $this->dbName = "universitydb";
 
         try{

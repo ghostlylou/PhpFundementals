@@ -48,7 +48,7 @@ class StudentDAO
                 echo "<div class='alert alert-success'>New Student has been created successfully</div>";
             }
             else{ //if creating a student failed
-                throw new DatabaseException("Can't create database");
+                throw new DatabaseException("Can't create database insert");
             }
         }
         catch (DatabaseException $e){

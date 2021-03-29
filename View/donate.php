@@ -10,17 +10,19 @@ if(isset($_POST['donate'])){
     $mollie = new MollieApiClient();
     $mollie->setApiKey("test_vqEjJvzKUW67F2gz3Mr3jzgpSs4drN");
 
+    $amount = $_POST['input'];
+    $email = $_POST['email'];
+
     $payment = $mollie->payments->create([
         "amount" => [
             "currency" => "EUR",
-            "value" => "{$_POST['input']}"
+            "value" => "{$_POST['input']}".".00"
         ],
         "description" => "Book Aid International",
         "redirectUrl" => "https://www.louellacreemers.nl/PhpFundementals/View/success.php",
-        //"webhookUrl"  => "https://haarlemfestival.louellacreemers.nl/webhook.php?id=$secondId&cart=$cartId"
+        "webhookUrl"  => "https://www.louellacreemers.nl/PhpFundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}"
     ]);
 
-    //TODO: add webhookURL
     header("Location: " . $payment->getCheckoutUrl(), true, 303);
 }
 ?>

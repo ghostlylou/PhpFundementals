@@ -19,8 +19,8 @@ if(isset($_POST['donate'])){
             "value" => "{$_POST['input']}".".00"
         ],
         "description" => "Book Aid International",
-        "redirectUrl" => "https://www.louellacreemers.nl/PhpFundementals/View/success.php",
-        "webhookUrl"  => "https://www.louellacreemers.nl/PhpFundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}"
+        "redirectUrl" => "https://louellacreemers.nl/phpfundementals/View/success.php",
+        "webhookUrl"  => "https://louellacreemers.nl/phpfundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}"
     ]);
 
     header("Location: " . $payment->getCheckoutUrl(), true, 303);

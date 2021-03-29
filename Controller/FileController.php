@@ -44,7 +44,7 @@ class FileController
     }
 
     public function uploadImageMirror($img){
-        $new = Image::make($img)->flip('v')->save($img);
+        $new = Image::make($_FILES['uploadImg']['tmp_name'])->flip('v')->save($img);
     }
 
 }

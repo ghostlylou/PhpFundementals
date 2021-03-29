@@ -2,20 +2,45 @@
 
 include_once "Helpers/nav.php";
 include_once "Helpers/sessionCheck.php";
-include_once "../Service/fileService.php";
+include_once "../Controller/FileController.php";
 
-$fileService = new fileService();
+$fileController = new FileController();
 
 if(isset($_POST['import'])){
-    $fileService->import($_FILES['upload']['tmp_name']);
+    $fileController->import($_FILES['upload']['tmp_name']);
 }
 
 if(isset($_POST['export'])){
-    $file = $fileService->export();
+    $file = $fileController->export();
     header("location: {$file}");
 
 }
 
+if(isset($_FILES['uploadImg'])){
+    $location = "upload/";
+    $img = $location . uniqid() . basename($_FILES['uploadImg']['name']);
+
+
+    if($_FILES['uploadImg']['size'] < 2000000){
+        if(!isset($_POST['uploadImgR'])){
+            if (move_uploaded_file($_FILES['uploadImg']['tmp_name'], $img)){
+                echo "file is valid and added";
+                $_POST['imgLoc'] = $img;
+            }
+            else{
+                echo "error. Can't upload your pic";
+            }
+        }
+
+        else{
+            $fileController->uploadImageMirror($img);
+            $_POST['imgLoc'] = $img;
+        }
+    }
+    else{
+        echo "error: Your image is too big. It can't be bigger than 2 MB";
+    }
+}
 ?>
 <!doctype html>
 
@@ -32,18 +57,36 @@ if(isset($_POST['export'])){
 
 <body style="background-color: gainsboro">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" style="margin-bottom:1em " method="post" enctype="multipart/form-data">
-        <div class="row justify-content-center align-items-center" style="padding: 2%;">
+        <div class="row justify-content-center align-items-center" style="padding: 1%;">
             <div class="col-12 text-center">
                 <input type="file" name="upload">
                 <button type="submit" name="import" value="import" class="btn btn-primary">IMPORT CSV</button>
             </div>
         </div>
 
-        <div class="row justify-content-center align-items-center" style="padding: 2%;">
+        <div class="row justify-content-center align-items-center" style="padding: 1%;">
             <div class="col-12 text-center">
                 <button type="submit" name="export" value="export" class="btn btn-primary">EXPORT CSV</button>
             </div>
         </div>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 text-center">
+                <input type="file" accept="image/*" name="uploadImg">
+                <button class="btn btn-primary" type="submit" name="uploadImg">UPLOAD IMAGE</button>
+                <button class="btn btn-primary" type="submit" name="uploadImgR">UPLOAD MIRRORED IMAGE</button>
+            </div>
+        </div>
+
+        <?php
+            if(isset($_POST['imgLoc'])){
+            echo "<div class='row justify-content-center align-items-center'>
+                <div class='col-12 text-center'>
+                        <img src='{$_POST['imgLoc']}' height='300'>
+                </div>
+            </div>";
+            }
+        ?>
     </form>
 </body>
 </html>

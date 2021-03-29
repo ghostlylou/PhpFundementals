@@ -44,7 +44,17 @@ class FileController
     }
 
     public function uploadImageMirror($img){
-        $new = Image::make($_FILES['uploadImg']['tmp_name'])->flip('v')->save($img);
+        $new = Image::make($_FILES['uploadImg']['tmp_name'])->flip('h')->save($img);
+    }
+
+    public function uploadImage($img){
+        if (move_uploaded_file($_FILES['uploadImg']['tmp_name'], $img)){
+            echo "file is valid and added";
+            return true;
+        }
+        else{
+            echo "error. Can't upload your pic";
+        }
     }
 
 }

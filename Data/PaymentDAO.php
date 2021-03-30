@@ -43,11 +43,13 @@ class PaymentDAO
         if($result){
             $row = mysqli_fetch_assoc($result);
 
+            $id = $row['id'];
             $amount = $row['amount'];
             $status = $row['status'];
             $email = $row['email'];
 
             $payment = new PaymentModel($amount, $status, $email);
+            $payment->setId($id);
 
             return $payment;
         }

@@ -5,10 +5,12 @@ require_once 'Model/PaymentModel.php';
 ini_set('display_errors', -1);
 
 $paymentService = new PaymentService();
-$payment = new PaymentModel(15, 'paid', 'louellacreemers@gmail.com');
-
-$paymentService->createPayment($payment);
+//$payment = new PaymentModel(15, 'paid', 'louellacreemers@gmail.com');
+//
+//$paymentService->createPayment($payment);
 
 $returnPayment = $paymentService->getPaymentByMail('louellacreemers@gmail.com');
 
-echo "ID:" . $returnPayment->getId();
+$id = $returnPayment->getId();
+
+echo "id=".$id;

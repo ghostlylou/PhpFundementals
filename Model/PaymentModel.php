@@ -65,4 +65,12 @@ class PaymentModel
     {
         $this->status = $status;
     }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
 }

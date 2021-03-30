@@ -15,7 +15,7 @@ $email = $_GET['email'];
 $paymentId = $_POST['id'];
 
 $mollie = new MollieApiClient();
-$mollie->setApiKey("test_vqEjJvzKUW67F2gz3Mr3jzgpSs4drN");
+$mollie->setApiKey("test_MPe8UVG5TqSsckQaAPfky3GPhRh8kB");
 
 $payment = $mollie->payments->get($paymentId);
 

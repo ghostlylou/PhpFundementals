@@ -19,8 +19,6 @@ class emailOrderGen
         $pdf = new pdf();
         $mailer = new mailer();
 
-        $mailer->sendMail("louellacreemers@gmail.com", "You email", "$email");
-
         $invoicePdf = $pdf->loadInvoicePDF();
 
         file_put_contents( "./View/upload/invoice_".$id.".pdf", $invoicePdf);

@@ -21,4 +21,8 @@ class PaymentService
     public function getPaymentByMail($email){
         return $this->dao->getPaymentByMail($email);
     }
+
+    public function getDistinctEmails(){
+        return $this->dao->getDistinctEmailPayment();
+    }
 }

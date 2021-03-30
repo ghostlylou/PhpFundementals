@@ -5,7 +5,7 @@ require_once 'Model/PaymentModel.php';
 
 ini_set('display_errors', -1);
 
-//$paymentService = new PaymentService();
+$paymentService = new PaymentService();
 ////$payment = new PaymentModel(15, 'paid', 'louellacreemers@gmail.com');
 ////
 ////$paymentService->createPayment($payment);
@@ -17,6 +17,12 @@ ini_set('display_errors', -1);
 //echo "id=".$id;
 
 
-$email = new emailOrderGen();
+//$email = new emailOrderGen();
+//
+//$email->sendEmail(4, 'paid', 'louellacreemers@gmail.com');
 
-$email->sendEmail(4, 'paid', 'louellacreemers@gmail.com');
+$pArray = $paymentService->getDistinctEmails();
+
+if(in_array("louellacreemers@gmail.com", $pArray)){
+    echo "Found it";
+}

@@ -79,6 +79,38 @@ class PaymentDAO
         }
     }
 
+    private function toArray($result){
+        if($result->num_rows > 0){
+            $payments = []; //new array for students
+            while($row = $result->fetch_assoc()){
+                $s =new PaymentModel($row['amount'], $row['status'], $row['email']);
+
+                $s->setEmail($row['email']);
+                $s->setAmount($row['amount']);
+                $s->setStatus($row['status']);
+
+                //add student to students array
+                $payments[] = $s;
+
+            }
+            return $payments;
+        }
+    }
+
+    public function getDistinctEmailPayment(){
+        $sql = "SELECT DISTINCT email FROM payments";
+
+        $result = mysqli_query($this->dbConn->connect(), $sql);
+
+        if($result){
+            return $this->toArray($result);
+        }
+
+        else{
+            throw new DatabaseException("Can't create database insert");
+        }
+    }
+
     private function EscapeString($result){ //against SQL injection
         $checkedResult = mysqli_real_escape_string($this->dbConn->connect(), $result);
         return $checkedResult;

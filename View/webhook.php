@@ -6,14 +6,14 @@ require_once "../lib/mollie/vendor/autoload.php";
 require_once "../Controller/PaymentController.php";
 require_once "../Email/mailer.php";
 require_once "../pdf/emailOrderGen.php";
+$amount = $_GET['amount'];
+$email = $_GET['email'];
 
-$counter = $_GET['counter'];
+$paymentController = new PaymentController();
+$emailArray = $paymentController->getDistinctEmails() ;
 
-if($counter == 0){
+if(!in_array($email, $emailArray)){
     $mailer = new mailer();
-
-    $amount = $_GET['amount'];
-    $email = $_GET['email'];
 
     $paymentId = $_POST['id'];
 
@@ -24,8 +24,9 @@ if($counter == 0){
 
     $mailer->sendMail("louellacreemers@gmail.com", "Trying", "$amount, $email, $paymentId");
 
-    $paymentController = new PaymentController();
     $emailGen = new emailOrderGen();
+
+
 
     $paymentController->createPayment($amount, "paid", $email);
 

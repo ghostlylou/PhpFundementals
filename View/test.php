@@ -25,11 +25,13 @@ $pArray = $paymentService->getDistinctEmails();
 
 var_dump($pArray);
 //
-//if(in_array("louellacreemers@gmail.com", $pArray)){
-//    echo "Found it";
-//}
-//
-//else{
-//    echo "no";
-//}
+if(in_array("louellacreemers@gmail.com", $pArray)){
+    echo "<br>";
+    echo "Found it";
+}
+
+else{
+    echo "<br>";
+    echo "no";
+}
 ?>

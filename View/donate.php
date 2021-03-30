@@ -17,6 +17,7 @@ if(isset($_POST['donate'])){
             "currency" => "EUR",
             "value" => "{$_POST['input']}".".00"
         ],
+        "method" => "creditcard",
         "description" => "Book Aid International",
         "redirectUrl" => "https://louellacreemers.nl/phpfundementals/View/donate.php",
         "webhookUrl"  => "https://louellacreemers.nl/phpfundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}"

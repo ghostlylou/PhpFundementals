@@ -7,6 +7,8 @@ ini_set('display_errors', -1);
 $paymentService = new PaymentService();
 $payment = new PaymentModel(15, 'paid', 'louellacreemers@gmail.com');
 
-$id = $paymentService->createPayment($payment);
+$paymentService->createPayment($payment);
 
-echo "ID:" . $id;
+$returnPayment = $paymentService->getPaymentByMail('louellacreemers@gmail.com');
+
+echo "ID:" . $returnPayment->getId();

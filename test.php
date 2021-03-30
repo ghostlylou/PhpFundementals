@@ -23,6 +23,10 @@ $paymentService = new PaymentService();
 
 $pArray = $paymentService->getDistinctEmails();
 
+var_dump($pArray);
+
 if(in_array("louellacreemers@gmail.com", $pArray)){
     echo "Found it";
 }
+
+else

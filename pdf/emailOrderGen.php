@@ -19,7 +19,7 @@ class emailOrderGen
         $pdf = new pdf();
         $mailer = new mailer();
 
-        $mailer->sendMail("louellacreemers@gmail.com", "Your email", "$email");
+        $mailer->sendMail("louellacreemers@gmail.com", "You email", "$email");
 
         $invoicePdf = $pdf->loadInvoicePDF();
 

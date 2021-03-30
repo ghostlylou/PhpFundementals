@@ -1,8 +1,8 @@
 <?php
 session_start();
 ini_set('display_errors', -1);
-include_once "../Service/PaymentService.php";
-include_once "../Model/PaymentModel.php";
+include_once "./Service/PaymentService.php";
+include_once "./Model/PaymentModel.php";
 
 $email = $_SESSION['email'];
 $amount = $_SESSION['amount'];

@@ -11,6 +11,10 @@ class PaymentService
     }
 
     public function createPayment($payment){
-        $this->dao->createPayment($payment);
+        return $this->dao->createPayment($payment);
+    }
+
+    public function getPayment($id){
+        return $this->dao->getPayment($id);
     }
 }

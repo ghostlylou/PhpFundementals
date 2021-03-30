@@ -13,7 +13,7 @@ class mailer
         $mailer = new Swift_Mailer($transport);
 
         $message = (new Swift_Message($subject))
-            ->setFrom(['haarlemfestival2021@gmail.com' => 'Haarlem Festival'])
+            ->setFrom(['haarlemfestival2021@gmail.com' => 'PHP2 Mail'])
             ->setTo([$recieverMail => 'visitor'])
             ->setBody($message)
         ;

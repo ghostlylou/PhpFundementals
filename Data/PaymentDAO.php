@@ -19,12 +19,12 @@ class PaymentDAO
 
         try{
             $sql = "INSERT INTO payments (amount, status, email)
-                    VALUES ({$amount}, {$status}, {$email})";
+                    VALUES ({$amount}, '{$status}', '{$email}')";
 
             $result = mysqli_query($this->dbConn->connect(), $sql);
 
             if($result){
-                echo "<div class='alert alert-success'>Thank you for donating, your invoice will be send by email</div>";
+                return $payment->getId();
             }
             else{
                 throw new DatabaseException("Can't create database insert");
@@ -32,6 +32,27 @@ class PaymentDAO
         }
         catch (DatabaseException $e){
             echo $e->getMessage();
+        }
+    }
+
+    public function getPayment(int $id){
+        $sql = "SELECT * FROM payments WHERE id= $id";
+
+        $result = mysqli_query($this->dbConn->connect(), $sql);
+
+        if($result){
+            $row = mysqli_fetch_assoc($result);
+
+            $amount = $row['amount'];
+            $status = $row['status'];
+            $email = $row['email'];
+
+            $payment = new PaymentModel($amount, $status, $email);
+
+            return $payment;
+        }
+        else{
+            throw new DatabaseException("Can't create database insert");
         }
     }
 

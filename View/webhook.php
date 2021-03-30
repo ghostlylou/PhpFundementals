@@ -4,6 +4,7 @@ use Mollie\Api\MollieApiClient;
 require_once "../lib/mollie/vendor/autoload.php";
 require_once "../Controller/PaymentController.php";
 require_once "../Email/mailer.php";
+require_once "../pdf/emailOrderGen.php";
 
 $mailer = new mailer();
 
@@ -18,13 +19,13 @@ $mollie->setApiKey("test_vqEjJvzKUW67F2gz3Mr3jzgpSs4drN");
 $payment = $mollie->payments->get($paymentId);
 
 
-$mailer->sendMail("louellacreemers@gmail.com", "Your donation is in progress", "HI: {$paymentId}");
-
 if($payment->isPaid()){
     $paymentController = new PaymentController();
+    $emailGen = new emailOrderGen();
 
-    $paymentController->createPayment($amount, "paid", $email);
+    $payment = $paymentController->createPayment($amount, "paid", $email);
 
+    $emailGen->sendEmail($payment, $email);
     $mailer->sendMail("louellacreemers@gmail.com", "Your donation has been created", "HI");
 }
 

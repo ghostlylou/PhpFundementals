@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', -1);
 require_once "Helpers/nav.php";
 
 use Mollie\Api\MollieApiClient;
@@ -6,7 +7,7 @@ require_once "../lib/mollie/vendor/autoload.php";
 
 if(isset($_POST['donate'])){
     $mollie = new MollieApiClient();
-    $mollie->setApiKey("test_MPe8UVG5TqSsckQaAPfky3GPhRh8kB");
+    $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
 
     $amount = $_POST['input'];
     $email = $_POST['email'];

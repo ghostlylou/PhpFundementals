@@ -21,6 +21,8 @@ $paymentService = new PaymentService();
 //
 //$email->sendEmail(4, 'paid', 'louellacreemers@gmail.com');
 
+echo "empty";
+
 $pArray = $paymentService->getDistinctEmails();
 
 var_dump($pArray);

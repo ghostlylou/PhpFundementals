@@ -97,15 +97,8 @@ class PaymentDAO
         if($result->num_rows > 0){
             $payments = []; //new array for students
             while($row = $result->fetch_assoc()){
-                $s =new PaymentModel($row['amount'], $row['status'], $row['email']);
-
-                $s->setEmail($row['email']);
-                $s->setAmount($row['amount']);
-                $s->setStatus($row['status']);
-
                 //add student to students array
-                $payments[] = $s;
-
+                $payments[] = $row['email'];
             }
             return $payments;
         }

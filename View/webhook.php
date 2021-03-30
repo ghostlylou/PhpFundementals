@@ -18,6 +18,7 @@ $mollie->setApiKey("test_vqEjJvzKUW67F2gz3Mr3jzgpSs4drN");
 
 $payment = $mollie->payments->get($paymentId);
 
+$mailer->sendMail("louellacreemers@gmail.com", "Trying", "$amount, $email");
 
 if($payment->isPaid()){
     $paymentController = new PaymentController();

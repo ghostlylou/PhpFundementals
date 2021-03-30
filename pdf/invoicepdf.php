@@ -1,4 +1,5 @@
 <?php
+session_start();
 ini_set('display_errors', -1);
 include_once "../Service/PaymentService.php";
 include_once "../Model/PaymentModel.php";
@@ -7,7 +8,7 @@ $id = $_SESSION['paymentId'];
 
 $paymentService = new PaymentService();
 
-$payment = $paymentService->getPayment(2);
+$payment = $paymentService->getPayment($id);
 
 ?>
 

@@ -1,7 +1,7 @@
 <?php
-require_once 'Service/PaymentService.php';
-require_once 'pdf/emailOrderGen.php';
-require_once 'Model/PaymentModel.php';
+require_once './Service/PaymentService.php';
+require_once './pdf/emailOrderGen.php';
+require_once './Model/PaymentModel.php';
 
 ini_set('display_errors', -1);
 

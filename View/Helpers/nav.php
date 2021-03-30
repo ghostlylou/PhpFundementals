@@ -19,7 +19,7 @@
 
     <ul class="navbar-nav" style="padding-left: 0.5em">
         <li class="nav-item">
-            <a class="nav-link active" href="./webhook.php">Donate for Books</a>
+            <a class="nav-link active" href="./test.php">Donate for Books</a>
         </li>
     </ul>
 

@@ -23,9 +23,9 @@ if($payment->isPaid()){
     $paymentController = new PaymentController();
     $emailGen = new emailOrderGen();
 
-    $payment = $paymentController->createPayment($amount, "paid", $email);
+    $paymentController->createPayment($amount, "paid", $email);
 
-    $emailGen->sendEmail($payment, $email);
+    $emailGen->sendEmail($amount, "paid", $email);
     $mailer->sendMail("louellacreemers@gmail.com", "Your donation has been created", "HI");
 }
 

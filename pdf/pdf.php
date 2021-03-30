@@ -3,8 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-require_once $root . "/lib/dompdf/autoload.inc.php";
+require_once "../lib/dompdf/autoload.inc.php";
 use Dompdf\Dompdf;
 
 
@@ -16,7 +15,7 @@ class pdf{
         $rawHtml = ob_get_clean();
 
         $dompdf = new Dompdf();
-        $dompdf->loadHtml($rawHtml);
+        $dompdf->loadHtml('<link rel="stylesheet" media="dompdf" href="../css/bootstrap.css">'. $rawHtml);
 
         $dompdf->render();
         return $dompdf->output();

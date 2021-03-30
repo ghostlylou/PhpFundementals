@@ -1,7 +1,7 @@
 <?php
 
 require_once "Database.php";
-require_once "./Model/PaymentModel.php";
+require_once "../Model/PaymentModel.php";
 
 
 class PaymentDAO

@@ -4,11 +4,11 @@ ini_set('display_errors', -1);
 include_once "../Service/PaymentService.php";
 include_once "../Model/PaymentModel.php";
 
-$id = $_SESSION['paymentId'];
+$email = $_SESSION['email'];
+$amount = $_SESSION['amount'];
+$status = $_SESSION['status'];
 
-$paymentService = new PaymentService();
-
-$payment = $paymentService->getPayment($id);
+echo $email;
 
 ?>
 
@@ -41,9 +41,9 @@ $payment = $paymentService->getPayment($id);
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?php echo $payment->getEmail()?></td>
-                            <td><?php echo $payment->getAmount()?></td>
-                            <td><?php echo $payment->getStatus()?></td>
+                            <td><?php echo $email?></td>
+                            <td><?php echo $amount?></td>
+                            <td><?php echo $status?></td>
                             <td><?php echo date("d/m/y")?></td>
                         </tr>
                     </tbody>

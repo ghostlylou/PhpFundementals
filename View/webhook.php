@@ -2,10 +2,10 @@
 ini_set('display_errors', -1);
 
 use Mollie\Api\MollieApiClient;
-require_once "./lib/mollie/vendor/autoload.php";
-require_once "./Controller/PaymentController.php";
-require_once "./Email/mailer.php";
-require_once "./pdf/emailOrderGen.php";
+require_once "../lib/mollie/vendor/autoload.php";
+require_once "../Controller/PaymentController.php";
+require_once "../Email/mailer.php";
+require_once "../pdf/emailOrderGen.php";
 
 $mailer = new mailer();
 

@@ -9,6 +9,8 @@ if(isset($_POST['donate'])){
     $mollie = new MollieApiClient();
     $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
 
+    $counter = 0;
+
     $amount = $_POST['input'];
     $email = $_POST['email'];
 
@@ -20,8 +22,9 @@ if(isset($_POST['donate'])){
         "method" => "creditcard",
         "description" => "Book Aid International",
         "redirectUrl" => "https://louellacreemers.nl/phpfundementals/View/donate.php",
-        "webhookUrl"  => "https://louellacreemers.nl/phpfundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}"
+        "webhookUrl"  => "https://louellacreemers.nl/phpfundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}&counter={$counter}"
     ]);
+    $counter++;
 
     header("Location: " . $payment->getCheckoutUrl(), true, 303);
 }

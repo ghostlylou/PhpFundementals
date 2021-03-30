@@ -7,27 +7,30 @@ require_once "../Controller/PaymentController.php";
 require_once "../Email/mailer.php";
 require_once "../pdf/emailOrderGen.php";
 
-$mailer = new mailer();
+$counter = $_GET['counter'];
 
-$amount = $_GET['amount'];
-$email = $_GET['email'];
+if($counter == 0){
+    $mailer = new mailer();
 
-$paymentId = $_POST['id'];
+    $amount = $_GET['amount'];
+    $email = $_GET['email'];
 
-$mollie = new MollieApiClient();
-$mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
+    $paymentId = $_POST['id'];
 
-$payment = $mollie->payments->get($paymentId);
+    $mollie = new MollieApiClient();
+    $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
 
-$mailer->sendMail("louellacreemers@gmail.com", "Trying", "$amount, $email, $paymentId");
+    $payment = $mollie->payments->get($paymentId);
 
-$paymentController = new PaymentController();
-$emailGen = new emailOrderGen();
+    $mailer->sendMail("louellacreemers@gmail.com", "Trying", "$amount, $email, $paymentId");
 
-$paymentController->createPayment($amount, "paid", $email);
+    $paymentController = new PaymentController();
+    $emailGen = new emailOrderGen();
 
-$mailer->sendMail("louellacreemers@gmail.com", "Payment Created", "$amount, 'paid', $paymentId");
+    $paymentController->createPayment($amount, "paid", $email);
 
-$emailGen->sendEmail($amount, "paid", $email);
-$mailer->sendMail("louellacreemers@gmail.com", "Your donation has been created", "HI");
+    $mailer->sendMail("louellacreemers@gmail.com", "Payment Created", "$amount, 'paid', $paymentId");
 
+    $emailGen->sendEmail($amount, "paid", $email);
+    $mailer->sendMail("louellacreemers@gmail.com", "Your donation has been created", "HI");
+}

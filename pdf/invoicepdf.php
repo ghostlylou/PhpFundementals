@@ -1,8 +1,7 @@
 <?php
 
-ini_set('display_errors', -1);
-include_once "./Service/PaymentService.php";
-include_once "./Model/PaymentModel.php";
+include_once "../Service/PaymentService.php";
+include_once "../Model/PaymentModel.php";
 
 $email = $_SESSION['email'];
 $amount = $_SESSION['amount'];
@@ -19,7 +18,7 @@ $status = $_SESSION['status'];
     <section class="container-fluid">
         <section class="row justify-content-center align-items-center">
             <section class="col-12 text-center">
-                <h2> Thank you for donating to Book AID</h2>
+                <h2> Thank you for donating to Book AID International</h2>
                 <p> We're very happy you too want to make life better for all students worldwide</p>
                 <br>
                 <p> Here are your  payment details!</p>

@@ -79,6 +79,20 @@ class PaymentDAO
         }
     }
 
+    public function getDistinctEmailPayment(){
+        $sql = "SELECT DISTINCT email FROM payments";
+
+        $result = mysqli_query($this->dbConn->connect(), $sql);
+
+        if($result){
+            return $this->toArray($result);
+        }
+
+        else{
+            throw new DatabaseException("Can't create database insert");
+        }
+    }
+
     private function toArray($result){
         if($result->num_rows > 0){
             $payments = []; //new array for students
@@ -94,20 +108,6 @@ class PaymentDAO
 
             }
             return $payments;
-        }
-    }
-
-    public function getDistinctEmailPayment(){
-        $sql = "SELECT DISTINCT email FROM payments";
-
-        $result = mysqli_query($this->dbConn->connect(), $sql);
-
-        if($result){
-            return $this->toArray($result);
-        }
-
-        else{
-            throw new DatabaseException("Can't create database insert");
         }
     }
 

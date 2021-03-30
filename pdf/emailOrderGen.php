@@ -19,9 +19,9 @@ class emailOrderGen
 
         $invoicePdf = $pdf->loadInvoicePDF();
 
-        file_put_contents( "./View/upload/invoice_".$id.".pdf", $invoicePdf);
+        file_put_contents( "../View/upload/invoice_".$id.".pdf", $invoicePdf);
 
         $mailer->sendEmailWithAttachment($email, 'Thank you for donating to Book Aid International',
-        'Here is your invoice. Thank you for supporting students in need!', ['./View/upload/invoice_'.$id.'.pdf']);
+        'Here is your invoice. Thank you for supporting students in need!', ['../View/upload/invoice_'.$id.'.pdf']);
     }
 }

@@ -13,6 +13,9 @@ if(isset($_POST['donate'])){
     $amount = $_POST['input'];
     $email = $_POST['email'];
 
+    echo $amount;
+    echo $email;
+
     $payment = $mollie->payments->create([
         "amount" => [
             "currency" => "EUR",
@@ -23,7 +26,7 @@ if(isset($_POST['donate'])){
         "webhookUrl"  => "https://louellacreemers.nl/phpfundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}"
     ]);
 
-    header("Location: " . $payment->getCheckoutUrl(), true, 303);
+    //header("Location: " . $payment->getCheckoutUrl(), true, 303);
 }
 ?>
 

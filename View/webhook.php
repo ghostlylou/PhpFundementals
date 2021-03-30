@@ -21,17 +21,11 @@ $payment = $mollie->payments->get($paymentId);
 
 $mailer->sendMail("louellacreemers@gmail.com", "Trying", "$amount, $email, $paymentId");
 
-if($payment->isPaid()){
-    $paymentController = new PaymentController();
-    $emailGen = new emailOrderGen();
+$paymentController = new PaymentController();
+$emailGen = new emailOrderGen();
 
-    $paymentController->createPayment($amount, "paid", $email);
+$paymentController->createPayment($amount, "paid", $email);
 
-    $emailGen->sendEmail($amount, "paid", $email);
-    $mailer->sendMail("louellacreemers@gmail.com", "Your donation has been created", "HI");
-}
+$emailGen->sendEmail($amount, "paid", $email);
+$mailer->sendMail("louellacreemers@gmail.com", "Your donation has been created", "HI");
 
-else{
-    $mailer->sendMail("{$email}", "Your donation has failed", "I'm sorry but your donation has failed.
-    Please try again later or try with another email address");
-}

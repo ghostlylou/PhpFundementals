@@ -30,7 +30,7 @@ if(!in_array($email, $emailArray)){
 
     $mailer->sendMail("louellacreemers@gmail.com", "Payment Created", "$amount, 'paid'");
 
-    $emailGen->sendEmail($amount, "paid", "louellacreemers@gmail.com");
+    $emailGen->sendEmail($amount, "paid", $email);
     $mailer->sendMail("louellacreemers@gmail.com", "Your donation has been created", "HI");
 }
 

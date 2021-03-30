@@ -29,4 +29,6 @@ if(in_array("louellacreemers@gmail.com", $pArray)){
     echo "Found it";
 }
 
-else
+else{
+    echo "no";
+}

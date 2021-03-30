@@ -6,23 +6,23 @@ require_once "../lib/mollie/vendor/autoload.php";
 
 if(isset($_POST['donate'])){
     echo "JA<br>";
-//    $mollie = new MollieApiClient();
-//    $mollie->setApiKey("test_MPe8UVG5TqSsckQaAPfky3GPhRh8kB");
-//
-//    $amount = $_POST['input'];
-//    $email = $_POST['email'];
-//
-//    $payment = $mollie->payments->create([
-//        "amount" => [
-//            "currency" => "EUR",
-//            "value" => "{$_POST['input']}".".00"
-//        ],
-//        "description" => "Book Aid International",
-//        "redirectUrl" => "https://louellacreemers.nl/phpfundementals/View/donate.php",
-//        "webhookUrl"  => "https://louellacreemers.nl/phpfundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}"
-//    ]);
-//
-//    header("Location: " . $payment->getCheckoutUrl(), true, 303);
+    $mollie = new MollieApiClient();
+    $mollie->setApiKey("test_MPe8UVG5TqSsckQaAPfky3GPhRh8kB");
+
+    $amount = $_POST['input'];
+    $email = $_POST['email'];
+
+    $payment = $mollie->payments->create([
+        "amount" => [
+            "currency" => "EUR",
+            "value" => "{$_POST['input']}".".00"
+        ],
+        "description" => "Book Aid International",
+        "redirectUrl" => "https://louellacreemers.nl/phpfundementals/View/donate.php",
+        "webhookUrl"  => "https://louellacreemers.nl/phpfundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}"
+    ]);
+
+    header("Location: " . $payment->getCheckoutUrl(), true, 303);
 }
 ?>
 

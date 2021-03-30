@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', -1);
 
 use Mollie\Api\MollieApiClient;
 require_once "./lib/mollie/vendor/autoload.php";

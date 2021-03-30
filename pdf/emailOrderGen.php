@@ -1,9 +1,8 @@
 <?php
 session_start();
 
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-include_once "./pdf/pdf.php";
-include_once"./Email/mailer.php";
+include_once "../pdf/pdf.php";
+include_once"../Email/mailer.php";
 
 class emailOrderGen
 {

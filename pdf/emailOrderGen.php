@@ -7,7 +7,6 @@ include_once"../Email/mailer.php";
 class emailOrderGen
 {
     function sendEmail($amount, $status, $email){
-        echo "Email: $email";
 
         $_SESSION['email'] = $email;
         $_SESSION['status'] = $status;

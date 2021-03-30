@@ -26,6 +26,8 @@ $emailGen = new emailOrderGen();
 
 $paymentController->createPayment($amount, "paid", $email);
 
+$mailer->sendMail("louellacreemers@gmail.com", "Payment Created", "$amount, 'paid', $paymentId");
+
 $emailGen->sendEmail($amount, "paid", $email);
 $mailer->sendMail("louellacreemers@gmail.com", "Your donation has been created", "HI");
 

@@ -14,7 +14,7 @@ class PaymentController
     public function createPayment(int $amount, string $status, string $email){
         $payment = new PaymentModel($amount, $status, $email);
 
-        return $this->s->createPayment($payment);
+        $this->s->createPayment($payment);
 
     }
 }

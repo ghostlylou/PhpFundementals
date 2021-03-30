@@ -19,7 +19,5 @@ foreach ($students as $item){
     http_response_code(200);
     //print_r($array);
     echo json_encode($array);
-
-    //TODO: get GET to work once live
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 require_once "Database.php";
-require_once "../Model/PaymentModel.php";
+require_once "./Model/PaymentModel.php";
 
 
 class PaymentDAO
@@ -27,7 +27,7 @@ class PaymentDAO
                 return $payment->getId();
             }
             else{
-                throw new DatabaseException("Can't create database insert");
+                echo"Can't create database insert";
             }
         }
         catch (DatabaseException $e){

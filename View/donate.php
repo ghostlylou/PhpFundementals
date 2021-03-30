@@ -5,7 +5,7 @@ use Mollie\Api\MollieApiClient;
 require_once "../lib/mollie/vendor/autoload.php";
 
 if(isset($_POST['donate'])){
-    echo "JA<br>"
+    echo "JA<br>";
 //    $mollie = new MollieApiClient();
 //    $mollie->setApiKey("test_MPe8UVG5TqSsckQaAPfky3GPhRh8kB");
 //

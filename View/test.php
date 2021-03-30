@@ -1,5 +1,5 @@
 <?php
-require_once './Service/PaymentService.php';
+require_once '../Service/PaymentService.php';
 
 ini_set('display_errors', -1);
 

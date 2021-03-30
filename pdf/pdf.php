@@ -15,7 +15,7 @@ class pdf{
         $rawHtml = ob_get_clean();
 
         $dompdf = new Dompdf();
-        $dompdf->loadHtml('<link rel="stylesheet" media="dompdf" href="../css/bootstrap.css">'. $rawHtml);
+        $dompdf->loadHtml('<link rel="stylesheet" media="dompdf" href="./css/bootstrap.css">'. $rawHtml);
 
         $dompdf->render();
         return $dompdf->output();

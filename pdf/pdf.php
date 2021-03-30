@@ -14,8 +14,10 @@ class pdf{
         include 'invoicepdf.php';
         $rawHtml = ob_get_clean();
 
+        $html = "<link rel='stylesheet' href='../css/bootstrap.css'> . $rawHtml";
+
         $dompdf = new Dompdf();
-        $dompdf->loadHtml('<link rel="stylesheet" media="dompdf" href="./css/bootstrap.css">'. $rawHtml);
+        $dompdf->loadHtml($html);
 
         $dompdf->render();
         return $dompdf->output();

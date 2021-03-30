@@ -19,4 +19,4 @@ ini_set('display_errors', -1);
 
 $email = new emailOrderGen();
 
-$email->sendEmail(4, 'pid', 'louellacreemers@gmail.com');
+$email->sendEmail(4, 'paid', 'louellacreemers@gmail.com');

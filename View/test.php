@@ -20,11 +20,10 @@ $paymentService = new PaymentService();
 ////
 ////$email->sendEmail(4, 'paid', 'louellacreemers@gmail.com');
 //
-//echo "empty";
 //
-//$pArray = $paymentService->getDistinctEmails();
-//
-//var_dump($pArray);
+$pArray = $paymentService->getDistinctEmails();
+
+var_dump($pArray);
 //
 //if(in_array("louellacreemers@gmail.com", $pArray)){
 //    echo "Found it";

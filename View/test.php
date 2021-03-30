@@ -1,10 +1,10 @@
 <?php
+require_once './Service/PaymentService.php';
 
 ini_set('display_errors', -1);
 
 echo "empty";
-?>
-//$paymentService = new PaymentService();
+$paymentService = new PaymentService();
 //////$payment = new PaymentModel(15, 'paid', 'louellacreemers@gmail.com');
 //////
 //////$paymentService->createPayment($payment);
@@ -29,7 +29,8 @@ echo "empty";
 //if(in_array("louellacreemers@gmail.com", $pArray)){
 //    echo "Found it";
 //}
-
-else{
-    echo "no";
-}
+//
+//else{
+//    echo "no";
+//}
+?>

@@ -14,12 +14,12 @@ $emailArray = $paymentController->getDistinctEmails();
 $mailer = new mailer();
 
 
-$paymentId = $_POST['id'];
+//$paymentId = $_POST['id'];
 
 $mollie = new MollieApiClient();
 $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
 
-$payment = $mollie->payments->get($paymentId);
+//$payment = $mollie->payments->get($paymentId);
 //
 //if ($payment->isPaid()){
     $emailGen = new emailOrderGen();

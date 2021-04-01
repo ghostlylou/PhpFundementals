@@ -13,14 +13,14 @@ $paymentController = new PaymentController();
 $emailArray = $paymentController->getDistinctEmails();
 $mailer = new mailer();
 
-//$paymentId = $_POST['id'];
+$paymentId = $_POST['id'];
 
 $mollie = new MollieApiClient();
 $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
 
-//$payment = $mollie->payments->get($paymentId);
-//
-//if ($payment->isPaid()){
+$payment = $mollie->payments->get($paymentId);
+
+if ($payment->isPaid()){
     $emailGen = new emailOrderGen();
 
     $paymentController->createPayment($amount, "paid", $email);
@@ -28,11 +28,11 @@ $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
 
     $emailGen->sendEmail($amount, "paid", $email);
     $mailer->sendMail("louellacreemers@gmail.com", "A donation has been created", "Someone posted a donation of $amount");
-//}
+}
 
-//else{
+else{
     $mailer->sendMail($email, "Donation error: Your payment failed", "Thank you for trying to donate! Please try another email address or try again later");
 
-//
+
 
 

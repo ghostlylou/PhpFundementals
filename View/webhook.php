@@ -6,13 +6,12 @@ require_once "../lib/mollie/vendor/autoload.php";
 require_once "../Controller/PaymentController.php";
 require_once "../Email/mailer.php";
 require_once "../pdf/emailOrderGen.php";
-$amount = 403;
-$email = "louellacreemers@gmail.com";
+$amount = $_GET['amount'];
+$email = $_GET['email'];
 
 $paymentController = new PaymentController();
 $emailArray = $paymentController->getDistinctEmails();
 $mailer = new mailer();
-
 
 //$paymentId = $_POST['id'];
 

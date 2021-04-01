@@ -10,34 +10,30 @@ $amount = $_GET['amount'];
 $email = $_GET['email'];
 
 $paymentController = new PaymentController();
-$emailArray = $paymentController->getDistinctEmails() ;
+$emailArray = $paymentController->getDistinctEmails();
 $mailer = new mailer();
 
-if(!in_array($email, $emailArray)){
 
-    $paymentId = $_POST['id'];
+$paymentId = $_POST['id'];
 
-    $mollie = new MollieApiClient();
-    $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
+$mollie = new MollieApiClient();
+$mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
 
-    $payment = $mollie->payments->get($paymentId);
+$payment = $mollie->payments->get($paymentId);
 
-    if ($payment->isPaid()){
-        $emailGen = new emailOrderGen();
+if ($payment->isPaid()){
+    $emailGen = new emailOrderGen();
 
-        $paymentController->createPayment($amount, "paid", $email);
+    $paymentController->createPayment($amount, "paid", $email);
 
 
-        $emailGen->sendEmail($amount, "paid", $email);
-        $mailer->sendMail("louellacreemers@gmail.com", "A donation has been created", "Someone posted a donation of $amount");
-    }
-
-    else{
-        $mailer->sendMail($email, "Donation error: Your payment failed", "Thank you for trying to donate! Please try another email address or try again later");
-
-    }
+    $emailGen->sendEmail($amount, "paid", $email);
+    $mailer->sendMail("louellacreemers@gmail.com", "A donation has been created", "Someone posted a donation of $amount");
 }
 
 else{
-    $mailer->sendMail($email, "Donation error: Your email is already known", "Thank you for trying to donate! Please try another email address");
+    $mailer->sendMail($email, "Donation error: Your payment failed", "Thank you for trying to donate! Please try another email address or try again later");
+
 }
+
+

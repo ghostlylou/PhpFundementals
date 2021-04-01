@@ -1,6 +1,6 @@
 <?php
 require_once "Database.php";
-require_once "../Model/StudentModel.php";
+require_once "./Model/StudentModel.php";
 
 class StudentDAO
 {
@@ -12,6 +12,13 @@ class StudentDAO
 
     public function GetAllStudentsDB(){
         $sql = "SELECT * FROM `students`;"; //Get everything from all students
+        $result = mysqli_query($this->dbConn->connect(), $sql); //Open DB connection and use the SQL query
+        return $this->ObjectToModel($result);
+    }
+
+    public function GetAllStudentsPeriod($startdate, $enddate){
+        $sql = "SELECT * FROM `students` WHERE date > '{$startdate}' AND date < '{$enddate}'";
+
         $result = mysqli_query($this->dbConn->connect(), $sql); //Open DB connection and use the SQL query
         return $this->ObjectToModel($result);
     }

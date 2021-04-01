@@ -1,6 +1,6 @@
 <?php
 
-include_once("../Data/StudentDAO.php");
+include_once("./Data/StudentDAO.php");
 
 $s = new StudentDAO();
 class StudentService
@@ -14,6 +14,12 @@ class StudentService
     public function GetAllStudents()
     {
         $studentArray = $this->s->GetAllStudentsDB();
+        return $studentArray; //returns all students from the database
+    }
+
+    public function GetAllStudentsPeriod($startdate, $enddate)
+    {
+        $studentArray = $this->s->GetAllStudentsPeriod($startdate, $enddate);
         return $studentArray; //returns all students from the database
     }
 

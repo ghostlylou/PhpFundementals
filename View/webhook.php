@@ -30,9 +30,9 @@ if ($payment->isPaid()){
     $mailer->sendMail("louellacreemers@gmail.com", "A donation has been created", "Someone posted a donation of $amount");
 }
 
-else{
+else {
     $mailer->sendMail($email, "Donation error: Your payment failed", "Thank you for trying to donate! Please try another email address or try again later");
-
+}
 
 
 

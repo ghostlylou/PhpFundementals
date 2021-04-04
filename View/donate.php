@@ -61,7 +61,9 @@ if(isset($_POST['donate'])){
             <div class="row justify-content-center align-items-center">
                 <div class="col-12 text-center">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="form">
+                        <label for="emailField">Email</label>
                         <input type="text" name="email" id="emailField" placeholder="Email" oninput="checkEmail(this.value)" required>
+                        <label for="amountField"Amount in EUR</label>
                         <input type="text" name="input" id="amountField" placeholder="Amount in EUR" oninput="checkAmount(this.value)" required> <? //TODO: check if int?>
                         <p id="error"></p>
                         <button class="btn btn-primary" type="submit" name="donate" id="submit">DONATE NOW</button>

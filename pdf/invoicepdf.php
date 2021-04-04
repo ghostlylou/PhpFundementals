@@ -7,6 +7,7 @@ require_once "../lib/barcodegen/vendor/autoload.php";
 $email = $_SESSION['email'];
 $amount = $_SESSION['amount'];
 $status = $_SESSION['status'];
+$id = uniqid();
 
 ?>
 
@@ -31,6 +32,7 @@ $status = $_SESSION['status'];
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">Ticket id</th>
                             <th scope="col">Made By</th>
                             <th scope="col">Amount EUR</th>
                             <th scope="col">Status</th>
@@ -39,12 +41,15 @@ $status = $_SESSION['status'];
                     </thead>
                     <tbody>
                         <tr>
+                            <td><?php echo $id?></td>
                             <td><?php echo $email?></td>
                             <td><?php echo $amount?></td>
                             <td><?php echo $status?></td>
                             <td><?php echo date("d/m/y")?></td>
-                            <td><?php $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-                                echo $generator->getBarcode($email, $generator::TYPE_CODE_128)?></td>
+                            <td><section class="col-sm-9">
+                                    <?php $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                                    echo $generator->getBarcode($email.$id, $generator::TYPE_CODE_128)?>
+                            </section> </td>
                         </tr>
                     </tbody>
                 </table>

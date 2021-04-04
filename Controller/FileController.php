@@ -16,18 +16,20 @@ class FileController
     public function import($file){
         $tFile = new SplFileObject($file);
 
-        $ar = array();
+        var_dump($tFile);
 
-        while (!$tFile->eof()){
-            array_push($ar, $tFile->fgetcsv());
-        }
-
-        foreach ($ar as $student){
-            $studModel = new StudentModel($student[0], $student[1], $student[2], $student[3], $student[4], $student[5]);
-            $studService = new StudentService();
-            $studService->CreateStudent($studModel);
-        }
-        return true;
+//        $ar = array();
+//
+//        while (!$tFile->eof()){
+//            array_push($ar, $tFile->fgetcsv());
+//        }
+//
+//        foreach ($ar as $student){
+//            $studModel = new StudentModel($student[0], $student[1], $student[2], $student[3], $student[4], $student[5]);
+//            $studService = new StudentService();
+//            $studService->CreateStudent($studModel);
+//        }
+//        return true;
     }
 
 

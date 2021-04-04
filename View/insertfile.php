@@ -55,7 +55,7 @@ if(isset($_FILES['uploadImg']) && !isset($_POST['export']) && !isset($_POST['imp
 </head>
 
 <body style="background-color: gainsboro">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" style="margin-bottom:1em " method="post" enctype="multipart/form-data">
+    <form action="" style="margin-bottom:1em " method="post" enctype="multipart/form-data">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 text-center">
                 <input type="file" name="upload" accept="text/csv">

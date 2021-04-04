@@ -1,5 +1,5 @@
 # Php Fundementals Application
- CRUD application for PHP 1 - Inholland
+ CRUD application for PHP 1 & PHP 2- Inholland
 
 ## Info
 Live website : http://louellacreemers.nl/phpfundementals

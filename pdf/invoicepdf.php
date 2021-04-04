@@ -4,9 +4,9 @@ include_once "../Service/PaymentService.php";
 include_once "../Model/PaymentModel.php";
 require_once "../lib/barcodegen/vendor/autoload.php";
 
-$email = $_SESSION['email'];
-$amount = $_SESSION['amount'];
-$status = $_SESSION['status'];
+$email = "louellacreemers@gmail.com"; //$_SESSION['email'];
+$amount = 5; //$_SESSION['amount'];
+$status = "paid"; //$_SESSION['status'];
 $id = uniqid();
 
 ?>
@@ -46,14 +46,16 @@ $id = uniqid();
                             <td><?php echo $amount?></td>
                             <td><?php echo $status?></td>
                             <td><?php echo date("d/m/y")?></td>
-                            <td><section class="col-sm-9">
-                                    <?php $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-                                    echo $generator->getBarcode($email.$id, $generator::TYPE_CODE_128)?>
-                            </section> </td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
             </section>
+        </section>
+        <br>
+        <section class="col-sm-2">
+            <?php $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+            echo $generator->getBarcode($id, $generator::TYPE_CODE_128)?>
         </section>
     </section>
 </body>

@@ -61,9 +61,10 @@ if(isset($_POST['donate'])){
             <div class="row justify-content-center align-items-center">
                 <div class="col-12 text-center">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="form">
-                        <label for="emailField">Email</label>
+                        <label for="emailField">Email:</label>
                         <input type="text" name="email" id="emailField" placeholder="Email" oninput="checkEmail(this.value)" required>
-                        <label for="amountField"Amount in EUR</label>
+
+                        <label for="amountField" style="margin-left: 1%">Amount in EUR:</label>
                         <input type="text" name="input" id="amountField" placeholder="Amount in EUR" oninput="checkAmount(this.value)" required> <? //TODO: check if int?>
                         <p id="error"></p>
                         <button class="btn btn-primary" type="submit" name="donate" id="submit">DONATE NOW</button>
@@ -80,7 +81,7 @@ if(isset($_POST['donate'])){
             let emailField = document.getElementById("emailField");
 
             //regex patterns
-            var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+            var emailPattern = /(?!.*\.\.)(^[^\.][^@\s]+@[^@\s]+\.[^@\s\.]+$)/;
             var amountPattern = /^[0-9]*$/;
 
             //Empty fields with refresh or entering the page again so user cant put in wrong data
@@ -91,12 +92,10 @@ if(isset($_POST['donate'])){
 
             //checks email with regex
             function checkEmail(){
+                console.log(emailField.value);
+
                 if(!emailField.value.match(emailPattern)){ //if the email is invalid
                     error.innerHTML = "Your email is invalid"; //puts string in p tag
-                    sButton.disabled = true;
-                }
-
-                else if(emailField.value.match(emailPattern) && !amountField.value.match(amountPattern)){ //if email is correct but amount isn't
                     sButton.disabled = true;
                 }
 

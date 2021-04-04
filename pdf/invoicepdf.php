@@ -2,6 +2,7 @@
 
 include_once "../Service/PaymentService.php";
 include_once "../Model/PaymentModel.php";
+require_once "../lib/barcodegen/vendor/autoload.php";
 
 $email = $_SESSION['email'];
 $amount = $_SESSION['amount'];
@@ -42,6 +43,8 @@ $status = $_SESSION['status'];
                             <td><?php echo $amount?></td>
                             <td><?php echo $status?></td>
                             <td><?php echo date("d/m/y")?></td>
+                            <td><?php $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                                echo $generator->getBarcode($email, $generator::TYPE_CODE_128)?></td>
                         </tr>
                     </tbody>
                 </table>

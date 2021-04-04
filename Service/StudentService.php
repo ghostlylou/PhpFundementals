@@ -1,6 +1,6 @@
 <?php
 
-include_once("./Data/StudentDAO.php");
+include_once("../Data/StudentDAO.php");
 
 $s = new StudentDAO();
 class StudentService

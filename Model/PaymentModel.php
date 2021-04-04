@@ -1,6 +1,5 @@
 <?php
 
-
 class PaymentModel
 {
     private $id;

@@ -90,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] = "GET"){
                         echo "<td>$date</td>";
                         echo "<td>
                         <a href='updatestudent.php?id={$id}' class='btn btn-primary m-r-1em'>Edit</a>
-                        <a href='deletestudent.php?id={$id}' class='btn btn-danger m-r-1em'>Delete</a>
+                        <a onclick='deleteStudent($id)' class='btn btn-danger m-r-1em'>Delete</a>
                         </td>";
                         echo "</tr>";
                     }
@@ -106,6 +106,14 @@ if($_SERVER["REQUEST_METHOD"] = "GET"){
             </div>
         </div>
     </div>
+    <script>
+        function deleteStudent(id){
+            var del = confirm("Are you sure you want to delete this student?")
+            if (del == true){
+               window.location.href='deletestudent.php?id=' +id;
+            }
+        }
+    </script>
 </body>
 </html>
 

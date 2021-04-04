@@ -1,9 +1,10 @@
 <?php
 ini_set('display_errors', -1);
 require_once "Helpers/nav.php";
+require_once "../lib/mollie/vendor/autoload.php";
+require_once "../Controller/PaymentController.php";
 
 use Mollie\Api\MollieApiClient;
-require_once "../lib/mollie/vendor/autoload.php";
 
 if(isset($_POST['donate'])){
     $mollie = new MollieApiClient();
@@ -11,6 +12,7 @@ if(isset($_POST['donate'])){
 
     $amount = $_POST['input'];
     $email = $_POST['email'];
+
 
     $payment = $mollie->payments->create([
         "amount" => [
@@ -23,6 +25,7 @@ if(isset($_POST['donate'])){
     ]);
 
     header("Location: " . $payment->getCheckoutUrl(), true, 303);
+
 }
 ?>
 
@@ -52,20 +55,72 @@ if(isset($_POST['donate'])){
 
                         Our mission is to provide books, resources and training to support an environment in which reading for pleasure, study and lifelong learning can flourish.
                     </p>
-                    <br>
-                    <p><bold>NOTE: You can only use your email address once</bold></p>
                 </div>
             </div>
 
             <div class="row justify-content-center align-items-center">
                 <div class="col-12 text-center">
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                        <input type="text" name="email" placeholder="Email" required>
-                        <input type="text" name="input" placeholder="Amount in EUR" required> <? //TODO: check if int?>
-                        <button class="btn btn-primary" type="submit" name="donate">DONATE NOW</button>
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="form">
+                        <input type="text" name="email" id="emailField" placeholder="Email" oninput="checkEmail(this.value)" required>
+                        <input type="text" name="input" id="amountField" placeholder="Amount in EUR" oninput="checkAmount(this.value)" required> <? //TODO: check if int?>
+                        <p id="error"></p>
+                        <button class="btn btn-primary" type="submit" name="donate" id="submit">DONATE NOW</button>
                     </form>
                 </div>
             </div>
         </div>
+
+        <script> //javascript input check
+            //put elements in variable
+            let error = document.getElementById("error");
+            let sButton = document.getElementById("submit");
+            let amountField = document.getElementById("amountField");
+            let emailField = document.getElementById("emailField");
+
+            //regex patterns
+            var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+            var amountPattern = /^[0-9]*$/;
+
+            //Empty fields with refresh or entering the page again so user cant put in wrong data
+            function init(){
+                amountField.value = " ";
+                emailField.value = " ";
+            }
+
+            //checks email with regex
+            function checkEmail(){
+                if(!emailField.value.match(emailPattern)){ //if the email is invalid
+                    error.innerHTML = "Your email is invalid"; //puts string in p tag
+                    sButton.disabled = true;
+                }
+
+                else if(emailField.value.match(emailPattern) && !amountField.value.match(amountPattern)){ //if email is correct but amount isn't
+                    sButton.disabled = true;
+                }
+
+                else{
+                    error.innerHTML = " "; //if input is correct after making a mistake, remove error and make button usable
+                    sButton.disabled = false;
+                }
+            }
+
+            //checks amount with regex
+            function checkAmount(){
+                if(!amountField.value.match(amountPattern)){ //if there is anything filled in tha isn't a number
+                    error.innerHTML = "You can only put in numbers"; //puts string in p tag
+                    sButton.disabled = true;
+                }
+
+                else if(!emailField.value.match(emailPattern) && amountField.value.match(amountPattern)){ //if amount is correct but email is not
+                    sButton.disabled = true;
+                }
+
+                else{
+                    error.innerHTML = " "; //if input is correct after making a mistake, remove error and make button usable
+                    sButton.disabled= false;
+                }
+            }
+            window.onload = init(); //if page loads, use init function
+        </script>
     </body>
 </html>

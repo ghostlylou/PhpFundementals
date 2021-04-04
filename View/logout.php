@@ -9,7 +9,7 @@ include_once "Helpers/sessionCheck.php";
 <head>
     <meta charset="utf-8">
 
-    <title>Student Management System - Update Student</title>
+    <title>Student Management System - Logout</title>
     <meta name="description" content="Student management system website for PHP1">
     <meta name="author" content="Louella Creemers">
 

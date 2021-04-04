@@ -14,11 +14,17 @@ class FileController
     }
 
     public function import($file){
-        $tFile = fread("file");
+        $tFile = fopen($file, "r");
 
-        var_dump($tFile);
+        $ar = array();
 
-//        $ar = array();
+        while(!feof($tFile)){
+            array_push($ar, $tFile->fgetcsv());
+        }
+
+        var_dump($ar);
+
+//        
 //
 //        while (!$tFile->eof()){
 //            array_push($ar, $tFile->fgetcsv());

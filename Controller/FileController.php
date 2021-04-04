@@ -14,15 +14,20 @@ class FileController
     }
 
     public function import($file){
-        $readFile = fopen($file, 'r');
+        $tFile = new SplFileObject($file);
 
-        $array = fgetcsv($readFile);
+        $ar = array();
 
-        $studModel = new StudentModel($array[0], $array[1], $array[2], $array[3], $array[4], $array[5]);
-        $studService = new StudentService();
+        while (!$tFile->eof()){
+            array_push($ar, $tFile->fgetcsv());
+        }
 
-        $studService->CreateStudent($studModel);
-
+        foreach ($ar as $student){
+            $studModel = new StudentModel($student[0], $student[1], $student[2], $student[3], $student[4], $student[5]);
+            $studService = new StudentService();
+            $studService->CreateStudent($studModel);
+        }
+        return true;
     }
 
 
@@ -51,9 +56,6 @@ class FileController
         if (move_uploaded_file($_FILES['uploadImg']['tmp_name'], $img)){
             echo "file is valid and added";
             return true;
-        }
-        else{
-            echo "error. Can't upload your pic";
         }
     }
 

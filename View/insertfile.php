@@ -14,10 +14,9 @@ if(isset($_POST['import'])){
 if(isset($_POST['export'])){
     $file = $fileController->export();
     header("location: {$file}");
-
 }
 
-if(isset($_FILES['uploadImg'])){
+if(isset($_FILES['uploadImg']) && !isset($_POST['export']) && !isset($_POST['import'])){
     $location = "upload/";
     $img = $location . uniqid() . basename($_FILES['uploadImg']['name']);
 
@@ -59,7 +58,7 @@ if(isset($_FILES['uploadImg'])){
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" style="margin-bottom:1em " method="post" enctype="multipart/form-data">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 text-center">
-                <input type="file" name="upload">
+                <input type="file" name="upload" accept="text/csv">
                 <button type="submit" name="import" value="import" class="btn btn-primary">IMPORT CSV</button>
             </div>
         </div>
@@ -90,4 +89,10 @@ if(isset($_FILES['uploadImg'])){
         ?>
     </form>
 </body>
+
+<script>
+    function studentCreated(){
+        alert("Students have been created");
+    }
+</script>
 </html>

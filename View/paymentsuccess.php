@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<section class="container">
+<section class="container-fluid">
     <section class="row justify-content-center align-items-center h-100 overflow-auto">
         <section class="col-12 text-center">
             <h2>Thank you for your donation!</h2>

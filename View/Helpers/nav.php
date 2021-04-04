@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <ul class="navbar-nav" style="padding-left: 0.5em">
         <li class="nav-item">
             <a class="nav-link active" href="./students.php">Students</a>
@@ -14,12 +14,6 @@
     <ul class="navbar-nav" style="padding-left: 0.5em">
         <li class="nav-item">
             <a class="nav-link active" href="./donate.php">Donate for Books</a>
-        </li>
-    </ul>
-
-    <ul class="navbar-nav" style="padding-left: 0.5em">
-        <li class="nav-item">
-            <a class="nav-link active" href="./test.php">Donate for Books</a>
         </li>
     </ul>
 

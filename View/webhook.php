@@ -32,6 +32,7 @@ if ($payment->isPaid()){
 
 else {
     $mailer->sendMail($email, "Donation error: Your payment failed", "Thank you for trying to donate! Please try another email address or try again later");
+    header("location: paymenterror.php");
 }
 
 

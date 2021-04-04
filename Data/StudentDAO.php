@@ -1,6 +1,7 @@
 <?php
 require_once "Database.php";
 require_once "../Model/StudentModel.php";
+require_once "AllExceptions.php";
 
 class StudentDAO
 {

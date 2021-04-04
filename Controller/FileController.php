@@ -23,20 +23,11 @@ class FileController
             }
         }
 
-        var_dump($ar);
-
-//
-//
-//        while (!$tFile->eof()){
-//            array_push($ar, $tFile->fgetcsv());
-//        }
-//
         foreach ($ar as $student){
             $studModel = new StudentModel($student[0], $student[1], $student[2], $student[3], $student[4], $student[5]);
             $studService = new StudentService();
             $studService->CreateStudent($studModel);
         }
-//        return true;
     }
 
 

@@ -57,6 +57,9 @@ if(isset($_FILES['uploadImg']) && !isset($_POST['export']) && !isset($_POST['imp
 <body style="background-color: gainsboro">
     <form action="" style="margin-bottom:1em " method="post" enctype="multipart/form-data">
         <div class="row justify-content-center align-items-center">
+            <div class="row text-center">
+                <p>Example student: 'jan,jansen,1998-12-30,IT,IT3D,642891@student.inholland.nl'</p>
+            </div>
             <div class="col-12 text-center">
                 <input type="file" name="upload" accept="text/csv">
                 <button type="submit" name="import" value="import" class="btn btn-primary">IMPORT CSV</button>

@@ -12,11 +12,10 @@ if(isset($_POST['year'])){
 else{
     $calender_url .= "https://calendarific.com/api/v2/holidays?api_key=c1d351472d6c3250c256549651e8dc4323e8c93a&country=nl&year=2021";
 }
-//c1d351472d6c3250c256549651e8dc4323e8c93a
 
-$calender_json = file_get_contents($calender_url);
-$calender_rawarray = json_decode($calender_json, true);
-$calender_array = $calender_rawarray['response']['holidays'];
+$calender_json = file_get_contents($calender_url); //calender data in json
+$calender_rawarray = json_decode($calender_json, true); //calender data that gives back everything
+$calender_array = $calender_rawarray['response']['holidays']; //calender data that we're actually going to use
 
 ?>
 
@@ -67,8 +66,7 @@ $calender_array = $calender_rawarray['response']['holidays'];
 
                     for($i = 0; $i < count($calender_array); $i++){
 
-                        $isoSub = substr($isoArray[$i], 0, 10);
-
+                        $isoSub = substr($isoArray[$i], 0, 10); //some dates also have times, which is cut off
                         echo "<tr>";
                         echo "<td>{$nameArray[$i]}</td>";
                         echo "<td>{$isoSub}</td>";

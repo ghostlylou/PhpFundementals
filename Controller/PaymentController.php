@@ -17,8 +17,4 @@ class PaymentController
         $this->s->createPayment($payment);
 
     }
-
-    public function getDistinctEmails(){
-        return $this->s->getDistinctEmails();
-    }
 }

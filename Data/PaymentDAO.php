@@ -58,41 +58,6 @@ class PaymentDAO
         }
     }
 
-    public function getPaymentByMail(string $mail){
-        $sql = "SELECT * FROM payments WHERE email= '{$mail}' ORDER BY id DESC LIMIT 1 ";
-
-        $result = mysqli_query($this->dbConn->connect(), $sql);
-
-        if($result){
-            $row = mysqli_fetch_assoc($result);
-
-            $amount = $row['amount'];
-            $status = $row['status'];
-            $email = $row['email'];
-
-            $payment = new PaymentModel($amount, $status, $email);
-
-            return $payment;
-        }
-        else{
-            throw new DatabaseException("Can't create database insert");
-        }
-    }
-
-    public function getDistinctEmailPayment(){
-        $sql = "SELECT DISTINCT email FROM payments";
-
-        $result = mysqli_query($this->dbConn->connect(), $sql);
-
-        if($result){
-            return $this->toArray($result);
-        }
-
-        else{
-            throw new DatabaseException("Can't create database insert");
-        }
-    }
-
     private function toArray($result){
         if($result->num_rows > 0){
             $payments = []; //new array for students

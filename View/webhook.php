@@ -10,7 +10,6 @@ $amount = $_GET['amount'];
 $email = $_GET['email'];
 
 $paymentController = new PaymentController();
-$emailArray = $paymentController->getDistinctEmails();
 $mailer = new mailer();
 
 $paymentId = $_POST['id'];
@@ -18,21 +17,21 @@ $paymentId = $_POST['id'];
 $mollie = new MollieApiClient();
 $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
 
-$payment = $mollie->payments->get($paymentId);
+$payment = $mollie->payments->get($paymentId); //looks up payment that just got made
 
 if ($payment->isPaid()){
     $emailGen = new emailOrderGen();
 
-    $paymentController->createPayment($amount, "paid", $email);
+    $paymentController->createPayment($amount, "paid", $email); //creates payment
 
 
-    $emailGen->sendEmail($amount, "paid", $email);
+    $emailGen->sendEmail($amount, "paid", $email); //send email to donator
+    //send email to me
     $mailer->sendMail("louellacreemers@gmail.com", "A donation has been created", "Someone posted a donation of $amount");
 }
 
-else {
-    $mailer->sendMail($email, "Donation error: Your payment failed", "Thank you for trying to donate! Please try another email address or try again later");
-    header("location: paymenterror.php");
+else { //if payment isn't recieved
+    $mailer->sendMail($email, "Donation error: Your payment failed", "Thank you for trying to donate! Unfortunately something went wrong.Please try another email address or try again later");
 }
 
 

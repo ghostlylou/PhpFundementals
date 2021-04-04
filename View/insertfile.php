@@ -13,27 +13,26 @@ if(isset($_POST['import'])){
 
 if(isset($_POST['export'])){
     $file = $fileController->export();
-    header("location: {$file}");
+    header("location: {$file}"); //calls to location where file is saved
 }
 
 if(isset($_FILES['uploadImg']) && !isset($_POST['export']) && !isset($_POST['import'])){
     $location = "upload/";
-    $img = $location . uniqid() . basename($_FILES['uploadImg']['name']);
+    $img = $location . uniqid() . basename($_FILES['uploadImg']['name']); //puts down img
 
 
-    if($_FILES['uploadImg']['size'] < 2000000){
-        if(!isset($_POST['uploadImgR'])){
-            if ($fileController->uploadImage($img)){;
-                $_POST['imgLoc'] = $img;
+    if($_FILES['uploadImg']['size'] < 2000000){ //checks if img is not too big
+        if(!isset($_POST['uploadImgR'])){ //if user hasn't selected to upload mirrored
+            if ($fileController->uploadImage($img)){ //upload image normally
+                $_POST['imgLoc'] = $img; //For HTML image tag to show result
             }
             else{
                 echo "error. Can't upload your pic";
             }
         }
-
         else{
-            $fileController->uploadImageMirror($img);
-            $_POST['imgLoc'] = $img;
+            $fileController->uploadImageMirror($img); //upload mirrored
+            $_POST['imgLoc'] = $img; //For HTML image tag to show result
         }
     }
     else{

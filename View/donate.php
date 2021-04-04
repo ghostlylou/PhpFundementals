@@ -8,13 +8,12 @@ use Mollie\Api\MollieApiClient;
 
 if(isset($_POST['donate'])){
     $mollie = new MollieApiClient();
-    $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP");
+    $mollie->setApiKey("test_BJqCEmBVqfHW8nWxDsAmk58SRcNWhP"); //sets key
 
     $amount = $_POST['input'];
     $email = $_POST['email'];
 
-
-    $payment = $mollie->payments->create([
+    $payment = $mollie->payments->create([ //creates payment
         "amount" => [
             "currency" => "EUR",
             "value" => "{$_POST['input']}".".00"
@@ -24,7 +23,7 @@ if(isset($_POST['donate'])){
         "webhookUrl"  => "https://louellacreemers.nl/phpfundementals/View/webhook.php?amount={$_POST['input']}&email={$_POST['email']}"
     ]);
 
-    header("Location: " . $payment->getCheckoutUrl(), true, 303);
+    header("Location: " . $payment->getCheckoutUrl(), true, 303); //if payment is paid, send to this page
 
 }
 ?>

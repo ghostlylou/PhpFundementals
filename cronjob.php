@@ -1,6 +1,6 @@
 <?php
 
-//Runs every monday at 23:59 on my server
+//Runs every monday at 23:59 on my server. Can't be reached by user due to 403 error
 include_once "Service/StudentService.php";
 include_once "Model/StudentModel.php";
 include_once "Email/mailer.php";

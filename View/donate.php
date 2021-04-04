@@ -86,8 +86,8 @@ if(isset($_POST['donate'])){
 
             //Empty fields with refresh or entering the page again so user cant put in wrong data
             function init(){
-                amountField.value = " ";
-                emailField.value = " ";
+                amountField.value = "";
+                emailField.value = "";
             }
 
             //checks email with regex

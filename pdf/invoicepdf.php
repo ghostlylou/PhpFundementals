@@ -4,9 +4,9 @@ include_once "../Service/PaymentService.php";
 include_once "../Model/PaymentModel.php";
 require_once "../lib/barcodegen/vendor/autoload.php";
 
-$email = "louellacreemers@gmail.com"; //$_SESSION['email'];
-$amount = 5; //$_SESSION['amount'];
-$status = "paid"; //$_SESSION['status'];
+$email = $_SESSION['email'];
+$amount = $_SESSION['amount'];
+$status = $_SESSION['status'];
 $id = uniqid();
 
 ?>

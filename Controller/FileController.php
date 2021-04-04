@@ -14,7 +14,7 @@ class FileController
     }
 
     public function import($file){
-        $tFile = new SplFileObject($file);
+        $tFile = fread("file");
 
         var_dump($tFile);
 
